@@ -1,11 +1,13 @@
-﻿.ag-format-container {
-    width: 90%;
-    margin: 0 auto;
+﻿.top-menu {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 10rem;
 }
 
-
-body {
-    background-color: #000;
+.ag-format-container {
+    width: 90%;
+    margin: 0 auto;
 }
 
 .ag-courses_box {
@@ -27,13 +29,26 @@ body {
     border-radius: 28px;
 }
 
-.ag-courses-item_link {
+/* Make NavLink behave like your old <a> */
+::deep .ag-courses-item_link {
     display: block;
     padding: 30px 20px;
     background-color: #121212;
     overflow: hidden;
     position: relative;
+    text-decoration: none;
+    color: inherit;
 }
+
+    /* Optional: highlight active route */
+    .ag-courses-item_link.active {
+        color: #fff;
+    }
+
+    /* Remove default focus ring; keep accessible outline if you like */
+    .ag-courses-item_link:focus {
+        outline: none;
+    }
 
     .ag-courses-item_link:hover,
     .ag-courses-item_link:hover .ag-courses-item_date {
@@ -42,10 +57,9 @@ body {
     }
 
         .ag-courses-item_link:hover .ag-courses-item_bg {
-            -webkit-transform: scale(10);
-            -ms-transform: scale(10);
-            -ms-transform: scale(10);
-            transform: scale(10);
+            -webkit-transform: scale(12);
+            -ms-transform: scale(12);
+            transform: scale(12);
         }
 
 .ag-courses-item_title {
@@ -62,9 +76,9 @@ body {
 .ag-courses-item_date {
     font-weight: bold;
     color: #f9b234;
-    -webkit-transition: color .5s ease;
-    -o-transition: color .5s ease;
-    transition: color .5s ease
+    -webkit-transition: color 1s ease;
+    -o-transition: color 1s ease;
+    transition: color 1s ease;
 }
 
 .ag-courses-item_bg {
@@ -101,11 +115,16 @@ body {
     background-color: #4c49ea;
 }
 
+.ag-courses_item:nth-child(7n) .ag-courses-item_bg {
+    background-color: #4b99ea;
+}
 
+.ag-courses_item:nth-child(8n) .ag-courses-item_bg {
+    background-color: #4c19ea;
+}
 
 @media only screen and (max-width: 979px) {
     .ag-courses_item {
-        -ms-flex-preferred-size: calc(50% - 30px);
         flex-basis: calc(50% - 30px);
     }
 
@@ -114,15 +133,15 @@ body {
     }
 }
 
-@media only screen and (min-with:400px) {
+@media only screen and (min-width: 400px) {
     .ag-format-container {
         width: 90%;
     }
 }
 
+/* fixed: was invalid "max-width: 100%" */
 @media only screen and (max-width: 639px) {
     .ag-courses_item {
-        -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
     }
 
