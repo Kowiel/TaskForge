@@ -1,0 +1,32 @@
+﻿/* Imports */
+@import url("https://unpkg.com/open-props/normalize.min.css");
+@import url("https://unpkg.com/open-props/open-props.min.css");
+
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body setup */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: dimgray;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+    /* Main container (wraps all app content) */
+    #app, body > *:not(script):not(link):not(meta) {
+        width: 100%;
+        max-width: 90%;
+        background-color: #797979;
+        margin: 20px 10px;
+        padding: 2rem;
+        padding-top:0px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
