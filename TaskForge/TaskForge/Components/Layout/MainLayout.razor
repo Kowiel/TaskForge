@@ -1,15 +1,29 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu @rendermode="InteractiveServer" />
-    </div>
+    <header>
+        <TaskForge.Client.ClientComponents.NavMenu @rendermode="@(new InteractiveWebAssemblyRenderMode(prerender: true))" />
+    </header>
 
     <main>
-         <div class="content">
+        <div class="content">
             @Body
         </div>
     </main>
+    <Footer/>
 </div>
 
 
+
+@code {
+    private static bool IsBrowser => OperatingSystem.IsBrowser();
+}
+
+@if (!IsBrowser)
+{
+    <div class="nav-loading">...</div>
+}
+else
+{
+    <TaskForge.Client.ClientComponents.NavMenu @rendermode="InteractiveWebAssembly" />
+}

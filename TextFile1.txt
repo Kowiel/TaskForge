@@ -1,0 +1,9 @@
+TO DO:
+
+1. Add a futter to the site and place the chat button there. /the button exists but needs to be scaled down and placed in the 
+footer the footer was added 
+2. Make the chat front work and be responsive
+3. Fix up the nav menu. //Done and easiy to eddit
+4. Add a option button
+5. Add a provile button icon
+6. Add a logo. 

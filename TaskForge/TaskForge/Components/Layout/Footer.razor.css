@@ -1,0 +1,78 @@
+﻿/* === Footer base === */
+.app-footer {
+    margin-top: auto;
+    background: #f2f2f2;
+    color: #444;
+    padding: 12px 24px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+}
+
+/* Layout: copyright left, links center, icon right */
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Centered footer links */
+.footer-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+    .footer-links .nav-link {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.85;
+        transition: opacity .15s ease;
+    }
+
+        .footer-links .nav-link.active,
+        .footer-links .nav-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+/* Right-side chat icon */
+.chat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--chat, 32px);
+    height: var(--chat, 32px);
+    border-radius: 50%;
+    cursor: pointer;
+    line-height: 0;
+    background: transparent;
+    transition: background .15s ease, transform .15s ease;
+}
+
+    .chat-icon:hover {
+        background: rgba(0,0,0,0.06);
+        transform: scale(1.05);
+    }
+
+    /* Make whatever <Chat_bubble/> renders (SVG, image, etc.) fit nicely */
+    .chat-icon :where(svg, img, .letter-image) {
+        width: 70%;
+        height: 70%;
+        display: block;
+    }
+
+/* Dark mode adaptation */
+@media (prefers-color-scheme: dark) {
+    .app-footer {
+        background: #1f1f1f;
+        color: #ddd;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .chat-icon:hover {
+        background: rgba(255,255,255,0.08);
+    }
+}
