@@ -8,9 +8,9 @@
             <NavLink href="/contact" Match="NavLinkMatch.Prefix">Contact</NavLink>
         </nav>
 
-        <input type="checkbox" id="chatToggle" hidden>
-        <label for="chatToggle" class="chat-icon" title="Chat" style="--chat:32px;">
-            <Chat_bubble />
-        </label>
+
+        <div  class="chat-icon" title="Chat" style="--chat:32px;">
+            <Chat_bubble @rendermode="InteractiveWebAssembly" />
+        </div>
     </div>
 </footer>

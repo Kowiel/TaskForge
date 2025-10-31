@@ -1,5 +1,4 @@
-﻿/* === Footer base === */
-.app-footer {
+﻿.app-footer {
     margin-top: auto;
     background: #f2f2f2;
     color: #444;
@@ -8,7 +7,6 @@
     font-size: 0.9rem;
 }
 
-/* Layout: copyright left, links center, icon right */
 .footer-inner {
     display: flex;
     align-items: center;
@@ -17,7 +15,10 @@
     gap: 1rem;
 }
 
-/* Centered footer links */
+.footer-copy {
+    flex-shrink: 0;
+}
+
 .footer-links {
     flex: 1;
     display: flex;
@@ -38,13 +39,10 @@
             text-decoration: underline;
         }
 
-/* Right-side chat icon */
 .chat-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--chat, 32px);
-    height: var(--chat, 32px);
     border-radius: 50%;
     cursor: pointer;
     line-height: 0;
@@ -52,19 +50,14 @@
     transition: background .15s ease, transform .15s ease;
 }
 
-    .chat-icon:hover {
-        background: rgba(0,0,0,0.06);
-        transform: scale(1.05);
-    }
-
-    /* Make whatever <Chat_bubble/> renders (SVG, image, etc.) fit nicely */
-    .chat-icon :where(svg, img, .letter-image) {
+    .chat-icon :where(svg, img) {
         width: 70%;
         height: 70%;
         display: block;
+        color: inherit;
+        fill: currentColor;
     }
 
-/* Dark mode adaptation */
 @media (prefers-color-scheme: dark) {
     .app-footer {
         background: #1f1f1f;

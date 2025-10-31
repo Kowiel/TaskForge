@@ -1,17 +1,57 @@
-﻿<div class="letter-image">
-	<div class="animated-mail">
-		<div class="back-fold"></div>
-		<div class="letter">
-			<div class="letter-border"></div>
-			<div class="letter-title"></div>
-			<div class="letter-context"></div>
-			<div class="letter-stamp">
-				<div class="letter-stamp-inner"></div>
-			</div>
-		</div>
-		<div class="top-fold"></div>
-		<div class="body"></div>
-		<div class="left-fold"></div>
-	</div>
-	<div class="shadow"></div>
+﻿<div class="chat-bubble-clickzone @(isOpen ? "is-open" : "")"
+     @onclick="ToggleOpen">
+
+    <div class="inner-visual">
+        <div class="animated-mail">
+            <div class="back-fold"></div>
+
+            <div class="letter">
+                <div class="letter-border"></div>
+                <div class="letter-title"></div>
+                <div class="letter-context"></div>
+                <div class="letter-stamp">
+                    <div class="letter-stamp-inner"></div>
+                </div>
+            </div>
+
+            <div class="top-fold"></div>
+            <div class="body"></div>
+            <div class="left-fold"></div>
+        </div>
+
+        @if (UnreadCount > 0)
+        {
+            <span class="unread-badge">@UnreadCount</span>
+        }
+    </div>
 </div>
+
+@code {
+    private bool isOpen;
+    private int UnreadCount;
+    private bool _initializedClientSide = false;
+
+    protected override void OnInitialized()
+    {
+        UnreadCount = 0;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!_initializedClientSide)
+        {
+            var rng = new Random();
+            UnreadCount = rng.Next(1, 10);
+            _initializedClientSide = true;
+            Console.WriteLine("HElo");
+
+            StateHasChanged();
+        }
+    }
+
+    private void ToggleOpen()
+    {
+        isOpen = !isOpen;
+    }
+}
+
