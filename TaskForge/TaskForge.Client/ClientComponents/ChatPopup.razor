@@ -1,0 +1,119 @@
+﻿<div class="chat-modal-overlay" @onclick="HandleBackdropClick">
+    <div class="chat-modal-window" @onclick:stopPropagation="true">
+        <div class="chat-modal-header">
+            <span class="chat-modal-title">TaskForge Chat</span>
+            <button class="chat-modal-close" @onclick="Close">×</button>
+        </div>
+
+        <div class="chat-modal-main">
+            <!-- LEFT: people / chats -->
+            <aside class="chat-modal-sidebar">
+                <div class="chat-sidebar-header">
+                    People
+                </div>
+
+                <div class="chat-sidebar-list">
+                    @foreach (var user in Users)
+                    {
+                        <div class="chat-user-row @(SelectedUser == user ? "selected" : "")"
+                             @onclick="() => SelectUser(user)">
+                            <div class="chat-user-avatar">@user.Initials</div>
+                            <div class="chat-user-info">
+                                <div class="chat-user-name">@user.Name</div>
+                                <div class="chat-user-lastmsg">@user.LastMsg</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </aside>
+
+            <!-- RIGHT: chat area -->
+            <section class="chat-modal-content">
+                <div class="chat-content-header">
+                    <div class="chat-content-user">
+                        <div class="chat-user-avatar small">MU</div>
+                        <div class="chat-user-info">
+                            <div class="chat-user-name">Michał Urban</div>
+                            <div class="chat-user-status">Last seen just now</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-content-body">
+                    <!-- Just placeholder layout for now -->
+                    <div class="chat-msg-row from-them">
+                        <div class="chat-msg-bubble">
+                            Hey, this is just a placeholder chat window.
+                        </div>
+                    </div>
+
+                    <div class="chat-msg-row from-me">
+                        <div class="chat-msg-bubble">
+                            Later we will load real messages here.
+                        </div>
+                    </div>
+
+                    <div class="chat-placeholder-note">
+                        No real messaging yet – only layout.
+                    </div>
+                </div>
+
+                <div class="chat-content-footer">
+                    <input class="chat-input" placeholder="Messaging is disabled for now…" disabled />
+                    <button class="chat-send-btn" disabled>Send</button>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public EventCallback OnClose { get; set; }
+
+    private List<ChatUser> Users = new()
+    {
+        new ChatUser("Michał Urban", "MU", "Lorem ipsum dolor sit amet…"),
+        new ChatUser("John Doe", "JD", "Hey, how is TaskForge going?"),
+        new ChatUser("TaskForge Bot", "TF", "Placeholder chat list for now.")
+    };
+
+    private ChatUser SelectedUser;
+
+    protected override void OnInitialized()
+    {
+        SelectedUser = Users[0];
+    }
+
+    private void SelectUser(ChatUser user)
+    {
+        SelectedUser = user;
+    }
+
+    private async Task Close()
+    {
+        if (OnClose.HasDelegate)
+            await OnClose.InvokeAsync();
+    }
+
+    private async Task HandleBackdropClick()
+    {
+        if (OnClose.HasDelegate)
+            await OnClose.InvokeAsync();
+    }
+
+    public class ChatUser
+    {
+        public string Name { get; }
+        public string Initials { get; }
+        public string LastMsg { get; }
+
+        public ChatUser(string name, string initials, string lastMsg)
+        {
+            Name = name;
+            Initials = initials;
+            LastMsg = lastMsg;
+        }
+    }
+}
+
