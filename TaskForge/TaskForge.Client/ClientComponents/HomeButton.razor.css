@@ -1,0 +1,22 @@
+﻿.home-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 10px;
+}
+
+.home-button-link {
+    display: inline-block;
+}
+
+.home-logo {
+    height: 45px;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}
+
+    .home-logo:hover {
+        transform: scale(1.05);
+        opacity: 0.85;
+    }

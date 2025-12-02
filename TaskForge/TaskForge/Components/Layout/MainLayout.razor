@@ -1,9 +1,15 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <header>
+    <header class="main-header">
+        <HomeButton @rendermode="@(new InteractiveWebAssemblyRenderMode(prerender: true))" />
         <TaskForge.Client.ClientComponents.NavMenu @rendermode="@(new InteractiveWebAssemblyRenderMode(prerender: true))" />
+        <div class="Spliter">
+            <HomeButton @rendermode="@(new InteractiveWebAssemblyRenderMode(prerender: true))" />
+            <HomeButton @rendermode="@(new InteractiveWebAssemblyRenderMode(prerender: true))" />
+        </div>
     </header>
+
 
     <main>
         <div class="content">
