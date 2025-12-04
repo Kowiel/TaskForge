@@ -27,11 +27,3 @@
 .simple-btn:active {
     transform: translateY(0);
 }
-
-@media (prefers-color-scheme: dark) {
-    .simple-btn {
-        border: 2px solid var(--border-dark);
-        background: var(--bg-surface-dark);
-        box-shadow: 0 4px 8px var(--shadow-dark);
-    }
-}
