@@ -6,33 +6,34 @@
     align-items: center;
     padding: 0 2rem;
     margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px var(--shadow);
 }
 
-    /* HomeButton (component) output: <div class="home-button"> ... */
-    .top-menu .home-button {
-        display: flex;
-        align-items: center;
-    }
+.top-menu .home-button {
+    display: flex;
+    align-items: center;
+}
 
-/* Title is *truly* centered in the bar */
 .menu-title {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
     font-size: 2.2rem;
-    font-weight: 1700 bold;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Right side (logo / future options) */
 .top-menu-right {
-    margin-left: auto; /* pushes it to the far right */
+    margin-left: auto;
     display: flex;
     align-items: center;
     gap: 0.75rem;
 }
 
-/* Right logo styling (can be similar to home-logo) */
 .top-menu-logo {
     height: 45px;
     width: auto;
@@ -40,10 +41,10 @@
     transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
 }
 
-    .top-menu-logo:hover {
-        transform: scale(1.05);
-        opacity: 0.85;
-    }
+.top-menu-logo:hover {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
 
 .ag-format-container {
     width: 90%;
@@ -51,56 +52,56 @@
 }
 
 .ag-courses_box {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
     align-items: flex-start;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding: 50px 0;
+    gap: 30px;
 }
 
 .ag-courses_item {
-    flex-basis: calc(33.33333% - 30px);
-    margin: 0 15px 30px;
+    flex-basis: calc(33.33333% - 20px);
     overflow: hidden;
-    border-radius: 28px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Make NavLink behave like your old <a> */
+.ag-courses_item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -4px var(--shadow);
+}
+
 ::deep .ag-courses-item_link {
     display: block;
-    padding: 30px 20px;
-    background-color: #121212;
+    padding: 50px 20px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
     overflow: hidden;
     position: relative;
     text-decoration: none;
-    color: inherit;
+    color: var(--text-primary);
+    border-radius: 12px;
 }
 
-    /* Optional: highlight active route */
-    .ag-courses-item_link.active {
-        color: #fff;
-    }
+::deep .ag-courses-item_link.active {
+    color: var(--primary);
+    border-color: var(--primary);
+}
 
-    /* Remove default focus ring; keep accessible outline if you like */
-    .ag-courses-item_link:focus {
-        outline: none;
-    }
+::deep .ag-courses-item_link:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
 
-    .ag-courses-item_link:hover,
-    .ag-courses-item_link:hover .ag-courses-item_date {
-        text-decoration: none;
-        color: #FFF;
-    }
+::deep .ag-courses-item_link:hover,
+::deep .ag-courses-item_link:hover .ag-courses-item_date {
+    text-decoration: none;
+    color: white;
+}
 
-        .ag-courses-item_link:hover .ag-courses-item_bg {
-            -webkit-transform: scale(12);
-            -ms-transform: scale(12);
-            transform: scale(12);
-        }
+::deep .ag-courses-item_link:hover .ag-courses-item_bg {
+    transform: scale(12);
+}
 
 .ag-courses-item_title {
     min-height: 87px;
@@ -108,64 +109,57 @@
     overflow: hidden;
     font-weight: bold;
     font-size: 30px;
-    color: #FFF;
+    color: var(--text-primary);
     z-index: 2;
     position: relative;
+    transition: color 0.3s ease;
+}
+
+::deep .ag-courses-item_link:hover .ag-courses-item_title {
+    color: white;
 }
 
 .ag-courses-item_date {
     font-weight: bold;
-    color: #f9b234;
-    -webkit-transition: color 1s ease;
-    -o-transition: color 1s ease;
+    color: var(--accent);
     transition: color 1s ease;
 }
 
 .ag-courses-item_bg {
     height: 128px;
     width: 128px;
-    background-color: #f9b234;
+    background-color: var(--primary);
     z-index: 1;
     position: absolute;
     top: -75px;
     right: -75px;
     border-radius: 50%;
-    -webkit-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 }
 
 .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
-    background-color: #3ecd5e;
+    background-color: var(--accent);
 }
 
 .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
-    background-color: #e44002;
+    background-color: #0891b2;
 }
 
 .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
-    background-color: #952aff;
+    background-color: #6366f1;
 }
 
 .ag-courses_item:nth-child(5n) .ag-courses-item_bg {
-    background-color: #cd3e94;
+    background-color: #8b5cf6;
 }
 
 .ag-courses_item:nth-child(6n) .ag-courses-item_bg {
-    background-color: #4c49ea;
-}
-
-.ag-courses_item:nth-child(7n) .ag-courses-item_bg {
-    background-color: #4b99ea;
-}
-
-.ag-courses_item:nth-child(8n) .ag-courses-item_bg {
-    background-color: #4c19ea;
+    background-color: #0e7490;
 }
 
 @media only screen and (max-width: 979px) {
     .ag-courses_item {
-        flex-basis: calc(50% - 30px);
+        flex-basis: calc(50% - 15px);
     }
 
     .ag-courses-item_title {
@@ -179,7 +173,6 @@
     }
 }
 
-/* fixed: was invalid "max-width: 100%" */
 @media only screen and (max-width: 639px) {
     .ag-courses_item {
         flex-basis: 100%;

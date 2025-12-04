@@ -10,26 +10,11 @@
         </div>
     </header>
 
-
     <main>
         <div class="content">
             @Body
         </div>
     </main>
+    
     <Footer/>
 </div>
-
-
-
-@code {
-    private static bool IsBrowser => OperatingSystem.IsBrowser();
-}
-
-@if (!IsBrowser)
-{
-    <div class="nav-loading">...</div>
-}
-else
-{
-    <TaskForge.Client.ClientComponents.NavMenu @rendermode="InteractiveWebAssembly" />
-}

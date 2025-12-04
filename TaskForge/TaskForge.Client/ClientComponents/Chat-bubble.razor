@@ -35,7 +35,7 @@
     private bool isOpen;
     private bool isPopupOpen;
     private int UnreadCount;
-    private bool _initializedClientSide = false;
+    private bool _initializedClientSide;
 
     protected override void OnInitialized()
     {
@@ -47,33 +47,31 @@
         if (!_initializedClientSide)
         {
             var rng = new Random();
-            UnreadCount = rng.Next(1, 10); // temporary, later from server
+            UnreadCount = rng.Next(1, 10);
             _initializedClientSide = true;
-            Console.WriteLine("HElo");
-
             StateHasChanged();
         }
     }
 
     private void ToggleOpen()
     {
+        Console.WriteLine($"Called ToggleOpen {isPopupOpen} + {isOpen}");
         isOpen = !isOpen;
 
         if (isOpen)
         {
-            // opened -> clear unread + show popup
             UnreadCount = 0;
             isPopupOpen = true;
         }
         else
         {
-            // closed -> hide popup
             isPopupOpen = false;
         }
     }
 
     private void ClosePopup()
     {
+        Console.WriteLine($"Called Close popup {isPopupOpen} + {isOpen}");
         isPopupOpen = false;
         isOpen = false;
     }
