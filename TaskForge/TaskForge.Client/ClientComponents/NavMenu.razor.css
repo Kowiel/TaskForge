@@ -104,5 +104,23 @@
     .menu {
         gap: 0.75rem;
         padding: 0.6rem 0.9rem;
+        min-width: 200px;
+    }
+    ::deep .menu-item {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .menu {
+        min-width: 0;
+        width: calc(100vw - 24px);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    /* Hide less important items after 4th on tiny screens */
+    ::deep .menu-item:nth-child(n+5) {
+        display: none;
     }
 }

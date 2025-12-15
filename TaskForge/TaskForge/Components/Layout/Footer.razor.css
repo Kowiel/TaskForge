@@ -61,3 +61,25 @@
     color: inherit;
     fill: currentColor;
 }
+
+/* Small screens */
+@media (max-width: 520px) {
+    .app-footer {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    .footer-inner {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .footer-links {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 400px) {
+    .footer-links a:nth-child(n+3) {
+        display: none; /* hide extra footer links on tiny screens */
+    }
+}

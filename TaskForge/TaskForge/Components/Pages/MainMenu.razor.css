@@ -192,3 +192,33 @@
         font-size: 16px;
     }
 }
+
+/* Small screens: tighten top bar and title */
+@media (max-width: 520px) {
+    .top-menu {
+        min-height: 4.5rem;
+        padding: 0 0.75rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+    }
+    .menu-title {
+        font-size: 1.4rem;
+    }
+    .top-menu-logo {
+        height: 36px;
+    }
+}
+
+@media (max-width: 400px) {
+    .top-menu {
+        padding: 0 0.5rem;
+        border-radius: 8px;
+    }
+    .menu-title {
+        font-size: 1.15rem;
+    }
+    /* If there are many right-side items, hide excess */
+    .top-menu-right > *:nth-child(n+3) {
+        display: none;
+    }
+}

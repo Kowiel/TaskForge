@@ -30,3 +30,18 @@
 .home-logo:hover {
     opacity: 0.9;
 }
+
+@media (max-width: 480px) {
+    .home-button {
+        padding: 4px 6px;
+    }
+    .home-logo {
+        height: 36px;
+    }
+}
+
+@media (max-width: 400px) {
+    .home-logo {
+        height: 30px;
+    }
+}

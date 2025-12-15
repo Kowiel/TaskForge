@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\Legal\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\images\Logo.svg" />
   </ItemGroup>
 

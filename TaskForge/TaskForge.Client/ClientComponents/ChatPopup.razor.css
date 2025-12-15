@@ -312,3 +312,34 @@
     opacity: 0.5;
     background: var(--secondary);
 }
+
+/* Responsive: adapt modal for small screens */
+@media (max-width: 640px) {
+    .chat-modal-window {
+        width: 96vw;
+        height: 80vh;
+        border-radius: 12px;
+    }
+    .chat-modal-main {
+        grid-template-columns: 1fr; /* collapse sidebar */
+    }
+    .chat-modal-sidebar {
+        display: none; /* hide sidebar on phones */
+    }
+    .chat-content-footer {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .chat-modal-window {
+        width: 98vw;
+        height: 82vh;
+        border-radius: 10px;
+    }
+    .chat-msg-bubble {
+        max-width: 85%;
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
