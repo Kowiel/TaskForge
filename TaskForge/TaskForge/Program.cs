@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using TaskForge.Client.ClientComponents;
 using TaskForge.Components;
+using TaskForge.DB_Context;
 
 namespace TaskForge
 {
@@ -7,7 +9,14 @@ namespace TaskForge
     {
         public static void Main(string[] args)
         {
+
             var builder = WebApplication.CreateBuilder(args);
+
+            //Database connection string
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseNpgsql(
+                    builder.Configuration.GetConnectionString("DefaultConnection")
+                ));
 
             // Add services to the container.
             builder.Services.AddRazorComponents()
@@ -15,6 +24,13 @@ namespace TaskForge
                 .AddInteractiveWebAssemblyComponents();
 
             var app = builder.Build();
+
+            // Apply migrations and seed data
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                db.Database.Migrate();
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

@@ -7,7 +7,7 @@
     font-size: 0.9rem;
 }
 
-.footer-inner {
+ .footer-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,24 +20,24 @@
     font-weight: 500;
 }
 
-.footer-links {
+::deep .footer-links {
     flex: 1;
     display: flex;
     justify-content: center;
     gap: 1.5rem;
 }
 
-.footer-links a {
-    color: var(--text-secondary);
+::deep .footer-links a {
+    color: blue;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.15s ease;
 }
 
-.footer-links a.active,
-.footer-links a:hover {
-    color: var(--primary);
-}
+    ::deep .footer-links a.active,
+    ::deep .footer-links a:hover {
+        color: var(--primary);
+    }
 
 .chat-icon {
     display: inline-flex;
@@ -80,6 +80,6 @@
 
 @media (max-width: 400px) {
     .footer-links a:nth-child(n+3) {
-        display: none; /* hide extra footer links on tiny screens */
+        display: none; 
     }
 }

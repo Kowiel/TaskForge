@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementy rozwiązania", "El
 		TextFile1.txt = TextFile1.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskForge.Shered", "TaskForge.Shered\TaskForge.Shered.csproj", "{70645B08-BAFC-4A77-9E1F-5938CAD46317}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{135217D7-E839-470C-91C3-D7D16D636562}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{135217D7-E839-470C-91C3-D7D16D636562}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{135217D7-E839-470C-91C3-D7D16D636562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70645B08-BAFC-4A77-9E1F-5938CAD46317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70645B08-BAFC-4A77-9E1F-5938CAD46317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70645B08-BAFC-4A77-9E1F-5938CAD46317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70645B08-BAFC-4A77-9E1F-5938CAD46317}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
