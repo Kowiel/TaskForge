@@ -1,0 +1,26 @@
+@page "/UserProfile"
+
+<PageTitle>User Profile</PageTitle>
+
+<h1>User Profile</h1>
+
+<div class="content">
+    <form class="profile-form" style="display:grid; gap: 1rem; max-width: 520px;">
+        <div style="display:grid; gap:0.5rem;">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" type="text" placeholder="John Doe" style="padding:0.6rem; border:1px solid var(--border); border-radius:8px; background: var(--bg-surface); color: var(--text-primary);" />
+        </div>
+        <div style="display:grid; gap:0.5rem;">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="john@example.com" style="padding:0.6rem; border:1px solid var(--border); border-radius:8px; background: var(--bg-surface); color: var(--text-primary);" />
+        </div>
+        <div style="display:grid; gap:0.5rem;">
+            <label for="username">Username</label>
+            <input id="username" type="text" placeholder="johndoe" style="padding:0.6rem; border:1px solid var(--border); border-radius:8px; background: var(--bg-surface); color: var(--text-primary);" />
+        </div>
+        <div style="display:flex; gap:0.75rem;">
+            <button type="submit" style="padding:0.6rem 1rem; background: var(--primary); color:white; border:none; border-radius:8px; box-shadow: 0 2px 4px var(--shadow);">Save</button>
+            <button type="reset" style="padding:0.6rem 1rem; background: var(--bg-hover); color: var(--text-primary); border:1px solid var(--border); border-radius:8px;">Reset</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,78 @@
+﻿<div class="chat-bubble-clickzone @(isOpen ? "is-open" : "") @(UnreadCount > 0 ? "has-unread" : "")"
+     @onclick="ToggleOpen">
+
+    <div class="inner-visual">
+        <div class="animated-mail">
+            <div class="back-fold"></div>
+
+            <div class="letter">
+                <div class="letter-border"></div>
+                <div class="letter-title"></div>
+                <div class="letter-context"></div>
+                <div class="letter-stamp">
+                    <div class="letter-stamp-inner"></div>
+                </div>
+            </div>
+
+            <div class="top-fold"></div>
+            <div class="body"></div>
+            <div class="left-fold"></div>
+        </div>
+
+        @if (UnreadCount > 0)
+        {
+            <span class="unread-badge">@UnreadCount</span>
+        }
+    </div>
+
+    @if (isPopupOpen)
+    {
+        <ChatPopup OnClose="ClosePopup" />
+    }
+</div>
+
+@code {
+    private bool isOpen;
+    private bool isPopupOpen;
+    private int UnreadCount;
+    private bool _initializedClientSide;
+
+    protected override void OnInitialized()
+    {
+        UnreadCount = 0;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!_initializedClientSide)
+        {
+            var rng = new Random();
+            UnreadCount = rng.Next(1, 10);
+            _initializedClientSide = true;
+            StateHasChanged();
+        }
+    }
+
+    private void ToggleOpen()
+    {
+        Console.WriteLine($"Called ToggleOpen {isPopupOpen} + {isOpen}");
+        isOpen = !isOpen;
+
+        if (isOpen)
+        {
+            UnreadCount = 0;
+            isPopupOpen = true;
+        }
+        else
+        {
+            isPopupOpen = false;
+        }
+    }
+
+    private void ClosePopup()
+    {
+        Console.WriteLine($"Called Close popup {isPopupOpen} + {isOpen}");
+        isPopupOpen = false;
+        isOpen = false;
+    }
+}

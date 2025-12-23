@@ -1,15 +1,20 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu @rendermode="InteractiveServer" />
-    </div>
+    <header class="main-header">
+        <HomeButton @rendermode="@(new InteractiveWebAssemblyRenderMode(prerender: true))" />
+        <NavMenu @rendermode="@(new InteractiveWebAssemblyRenderMode(prerender: true))" />
+        <div class="Spliter">
+            <SettingsButton @rendermode="@(new InteractiveWebAssemblyRenderMode(prerender: true))" />
+            <ProfileButton @rendermode="@(new InteractiveWebAssemblyRenderMode(prerender: true))" />
+        </div>
+    </header>
 
     <main>
-        <article class="content px-4">
+        <div class="content">
             @Body
-        </article>
+        </div>
     </main>
+    
+    <Footer/>
 </div>
-
-

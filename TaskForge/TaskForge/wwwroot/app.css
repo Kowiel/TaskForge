@@ -1,32 +1,112 @@
-﻿/* Imports */
-@import url("https://unpkg.com/open-props/normalize.min.css");
+﻿@import url("https://unpkg.com/open-props/normalize.min.css");
 @import url("https://unpkg.com/open-props/open-props.min.css");
 
 
-/* Basic reset */
+:root {
+    --primary: #1e3a8a;
+    --primary-hover: #1e40af;
+    --secondary: #475569;
+    --accent: #0891b2;
+    --accent-hover: #0e7490;
+    --bg-main: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-hover: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --border: #cbd5e1;
+    --shadow: rgba(15, 23, 42, 0.08);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body setup */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: dimgray;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #cbd5e1;
     display: flex;
     justify-content: center;
     min-height: 100vh;
+    color: var(--text-primary);
 }
 
-    /* Main container (wraps all app content) */
-    #app, body > *:not(script):not(link):not(meta) {
-        width: 100%;
-        max-width: 90%;
-        background-color: #797979;
-        margin: 20px 10px;
-        padding: 2rem;
-        padding-top:0px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.page {
+    width: 100%;
+    max-width: 90%;
+    background-color: var(--bg-surface);
+    margin: 20px 10px;
+    padding: 2rem;
+    padding-top: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px var(--shadow), 0 2px 4px -2px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+}
+
+.content {
+    margin-top: 1rem;
+}
+
+main {
+    flex: 1;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.Spliter {
+    display: flex;
+}
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .app-footer {
+        background: #1f1f1f;
+        color: #ddd;
+        border-top: 1px solid rgba(255,255,255,0.1);
     }
+}
+
+/* Small screens adjustments */
+@media (max-width: 480px) {
+    body {
+        justify-content: stretch;
+    }
+    .page {
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+        padding: 0.875rem;
+        min-height: 100vh;
+        box-shadow: none;
+    }
+    .main-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        padding: 0.75rem 0.25rem;
+    }
+    .content {
+        margin-top: 0.5rem;
+    }
+    .Spliter {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .page {
+        padding: 0.75rem;
+    }
+}
+
+

@@ -1,0 +1,85 @@
+﻿.app-footer {
+    margin-top: auto;
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-copy {
+    flex-shrink: 0;
+    font-weight: 500;
+}
+
+::deep .footer-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+::deep .footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+}
+
+::deep .footer-links a.active,
+::deep .footer-links a:hover {
+    color: var(--primary);
+}
+
+.chat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    line-height: 0;
+    background: transparent;
+    transition: background 0.15s ease;
+}
+
+.chat-icon:hover {
+    background: var(--bg-hover);
+}
+
+.chat-icon :where(svg, img) {
+    width: 70%;
+    height: 70%;
+    display: block;
+    color: inherit;
+    fill: currentColor;
+}
+
+/* Small screens */
+@media (max-width: 520px) {
+    .app-footer {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    .footer-inner {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .footer-links {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 400px) {
+    .footer-links a:nth-child(n+3) {
+        display: none; /* hide extra footer links on tiny screens */
+    }
+}
