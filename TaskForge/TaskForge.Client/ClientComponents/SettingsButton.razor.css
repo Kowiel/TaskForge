@@ -26,13 +26,13 @@
 }
 
 ::deep .btn {
-    background: linear-gradient( 0deg, rgba(139, 92, 246, 1) 0%, rgba(124, 58, 237, 1) 100% );
+    background: linear-gradient( 0deg, rgb(10, 122, 187) 0%, rgb(10, 122, 187) 100% );
     border: none;
     margin-right: 1rem;
 }
 
     ::deep .btn:hover {
-        color: #c084fc;
+        color: rgb(10, 122, 187);
         background: transparent;
         box-shadow: none;
     }
@@ -45,7 +45,7 @@
         right: 0;
         height: 2px;
         width: 0;
-        background: #c084fc;
+        background: rgb(10, 122, 187);
         box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003, 4px 4px 5px 0px #0002;
         transition: 400ms ease all;
     }
